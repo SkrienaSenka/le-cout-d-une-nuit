@@ -2,6 +2,7 @@ const API = 'le-cout-d-une-nuit.osc-fr1.scalingo.io';
 
 let pseudo;
 let clientSocket;
+let port;
 
 function host() {
     const form = cleanForm()
@@ -46,27 +47,25 @@ function join() {
     form.appendChild(submitButton);
 }
 
-function cleanForm() {
-    const form = document.getElementById('baseForm');
-    do {
-        form.removeChild(form.firstChild);
-    } while (form.firstChild !== null);
-    return form;
-}
-
 function createGame() {
     pseudo = document.getElementById('pseudo').value;
     const form = cleanForm()
     sendGameRequest().then(data => {
-        clientSocket = new WebSocket('ws://' + API + ':' + data.port);
+        port = data.port;
+        clientSocket = new WebSocket('ws://' + API + ':' + port);
         clientSocket.onmessage = function (evt) {
-            let message = evt.data;
-            console.log(message);
+            if ('message' === evt.data.type) {
+                const messages = document.getElementById('messages');
+                messages.prepend(document.createElement('p').appendChild(document.createTextNode(
+                    evt.data.payload.sender + ' : ' + evt.data.payload.message
+                )));
+            }
         };
 
         const code = document.createElement('p');
-        code.appendChild(document.createTextNode(data.port));
+        code.appendChild(document.createTextNode(port));
         form.appendChild(code);
+        createMessagesField();
     });
 }
 
@@ -78,9 +77,45 @@ async function sendGameRequest() {
 function joinGame() {
     pseudo = document.getElementById('pseudo').value;
     const port = document.getElementById('roomCode').value;
+    createMessagesField();
     clientSocket = new WebSocket('ws://' + API + ':' + port);
     clientSocket.onmessage = function (evt) {
-        let message = evt.data;
-        console.log(message);
+        const messages = document.getElementById('messages');
+        messages.prepend(document.createElement('p').appendChild(document.createTextNode(evt.data)));
     };
+}
+
+function createMessagesField() {
+    const messagesDiv = document.createElement('div');
+    messagesDiv.setAttribute('id', 'messages');
+
+    const messageInput = document.createElement('input');
+    messageInput.setAttribute('id', 'newMessage');
+    messageInput.setAttribute('type', 'text');
+    messageInput.setAttribute('placeholder', 'Nouveau message...');
+
+    const messageSubmit = document.createElement('button');
+    messageSubmit.appendChild(document.createTextNode('Envoyer'));
+    messageSubmit.addEventListener('click', sendMessage);
+
+    messagesDiv.appendChild(messageInput);
+    messagesDiv.appendChild(messageSubmit);
+
+    document.getElementsByTagName('body')[0].appendChild(messagesDiv);
+}
+
+function sendMessage() {
+    const message = document.getElementById('newMessage').value;
+    fetch('http://' + API + '/message', {
+        method: 'POST',
+        body: JSON.stringify({ port, message, pseudo })
+    });
+}
+
+function cleanForm() {
+    const form = document.getElementById('baseForm');
+    do {
+        form.removeChild(form.firstChild);
+    } while (form.firstChild !== null);
+    return form;
 }

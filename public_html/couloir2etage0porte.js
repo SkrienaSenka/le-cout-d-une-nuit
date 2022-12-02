@@ -15,5 +15,9 @@ function detectClick(event){
             document.querySelector('#imgContainer').classList.remove('hidden');
         }
     }
+    if (event.clientX/window.innerWidth > 0.368 && event.clientX/window.innerWidth < 0.393){
+        if (event.clientY/window.innerHeight > 0.418 && event.clientY/window.innerHeight < 0.476)
+            window.location = "couloir1etage0ee.html"
+    }
 
 }
