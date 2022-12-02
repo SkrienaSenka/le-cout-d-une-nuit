@@ -56,18 +56,22 @@ function cleanForm() {
 
 function createGame() {
     pseudo = document.getElementById('pseudo').value;
-    cleanForm()
+    const form = cleanForm()
     sendGameRequest().then(data => {
         clientSocket = new WebSocket('ws://' + API + ':' + data.port);
         clientSocket.onmessage = function (evt) {
             let message = evt.data;
             console.log(message);
         };
+
+        const code = document.createElement('p');
+        code.appendChild(document.createTextNode(data.port));
+        form.appendChild(code);
     });
 }
 
 async function sendGameRequest() {
-    const response = await fetch('http://' + API + '/create-game', { method: 'POST' });
+    const response = await fetch('https://' + API + '/create-game', { method: 'POST' });
     return await response.json();
 }
 
