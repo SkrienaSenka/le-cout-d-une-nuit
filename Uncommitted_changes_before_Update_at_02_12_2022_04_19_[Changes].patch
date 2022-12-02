@@ -1,0 +1,359 @@
+Index: styles/couloir1pgaucheetage0.css
+===================================================================
+diff --git a/styles/couloir1pgaucheetage0.css b/styles/couloir1pgaucheetage0.css
+new file mode 100644
+--- /dev/null	
++++ b/styles/couloir1pgaucheetage0.css	
+@@ -0,0 +1,41 @@
++body {
++    background: url("../Images/couloir1portegaucheetage0.png") no-repeat center center fixed;
++    background-size: cover;
++    width: 100vw;
++    height: 100vh;
++    margin: 0;
++}
++
++#imgContainer{
++    display:block;
++    position: absolute;
++    width: 60%;
++    top: 50%;
++    left: 50%;
++    transform: translate(-50%,-50%);
++}
++#imgContainer.hidden{
++    display:none;
++}
++
++#imgContainer img{
++    width: 100%;
++    height: 100%;
++}
++
++#imgContainer #closeButton{
++    position: absolute;
++    color: black;
++    padding: 10px;
++    font-size: 2em;
++    font-family: sans-serif;
++    right: 0;
++    top: 0;
++    cursor: pointer;
++}
++
++#imgContainer #closeButton:hover{
++    background-color: rgba(0,0,0,0.5);
++}
++
++
+Index: scripts/couloir1pgaucheetage0.js
+===================================================================
+diff --git a/scripts/couloir1pgaucheetage0.js b/scripts/couloir1pgaucheetage0.js
+new file mode 100644
+--- /dev/null	
++++ b/scripts/couloir1pgaucheetage0.js	
+@@ -0,0 +1,19 @@
++document.addEventListener("click", detectClick)
++document.querySelector('#closeButton').addEventListener('click', ()=>{
++    document.querySelector('#imgContainer').classList.add('hidden');
++});
++
++function detectClick(event){
++    console.log(event.clientX + " " + event.clientY)
++    console.log(event.clientX/window.innerWidth + " " + event.clientY/window.innerHeight)
++    if (event.clientX/window.innerWidth > 0.57 && event.clientX/window.innerWidth < 0.66){
++        if (event.clientY/window.innerHeight > 0.35 && event.clientY/window.innerHeight < 0.57)
++            window.location = "couloir1etage0.html"
++    }
++    else if (event.clientX/window.innerWidth > 0.82 && event.clientX/window.innerWidth < 0.87) {
++        if (event.clientY / window.innerHeight > 0.57 && event.clientY / window.innerHeight < 0.63){
++            document.querySelector('#imgContainer').classList.remove('hidden');
++        }
++    }
++
++}
+\ No newline at end of file
+Index: public_html/couloir1etage0ee.html
+===================================================================
+diff --git a/public_html/couloir1etage0ee.html b/public_html/couloir1etage0ee.html
+new file mode 100644
+--- /dev/null	
++++ b/public_html/couloir1etage0ee.html	
+@@ -0,0 +1,16 @@
++<!DOCTYPE html>
++<html lang="fr">
++<head>
++  <title>Couloir 1 étage 0 porte droite</title>
++  <link rel="stylesheet" href="../styles/couloir1etage0ee.css">
++  <link href='https://fonts.googleapis.com/css?family=Yellowtail:400' rel='stylesheet' type='text/css'>
++</head>
++<body>
++<div id="imgContainer"  class="hidden">
++  <div id="closeButton">X</div>
++  <img src="../Images/enigmec1pdroite0.png"/>
++</div>
++
++<script src="../scripts/couloir1etage0ee.js"></script>
++</body>
++</html>
+Index: scripts/couloir1etage0ee.js
+===================================================================
+diff --git a/scripts/couloir1etage0ee.js b/scripts/couloir1etage0ee.js
+new file mode 100644
+--- /dev/null	
++++ b/scripts/couloir1etage0ee.js	
+@@ -0,0 +1,19 @@
++document.addEventListener("click", detectClick)
++document.querySelector('#closeButton').addEventListener('click', ()=>{
++    document.querySelector('#imgContainer').classList.add('hidden');
++});
++
++function detectClick(event){
++    console.log(event.clientX + " " + event.clientY)
++    console.log(event.clientX/window.innerWidth + " " + event.clientY/window.innerHeight)
++    if (event.clientX/window.innerWidth > 0.57 && event.clientX/window.innerWidth < 0.66){
++        if (event.clientY/window.innerHeight > 0.35 && event.clientY/window.innerHeight < 0.57)
++            window.location = "couloir1etage0.html"
++    }
++    else if (event.clientX/window.innerWidth > 0.82 && event.clientX/window.innerWidth < 0.87) {
++        if (event.clientY / window.innerHeight > 0.57 && event.clientY / window.innerHeight < 0.63){
++            document.querySelector('#imgContainer').classList.remove('hidden');
++        }
++    }
++
++}
+\ No newline at end of file
+Index: public_html/couloir2etage0.html
+===================================================================
+diff --git a/public_html/couloir2etage0.html b/public_html/couloir2etage0.html
+new file mode 100644
+--- /dev/null	
++++ b/public_html/couloir2etage0.html	
+@@ -0,0 +1,11 @@
++<!DOCTYPE html>
++<html lang="fr">
++<head>
++  <title>Couloir 1 étage 0</title>
++  <script src="../scripts/couloir2etage0.js"></script>
++  <link rel="stylesheet" href="../styles/couloir2etage0.css">
++  <link href='https://fonts.googleapis.com/css?family=Yellowtail:400' rel='stylesheet' type='text/css'>
++</head>
++<body>
++</body>
++</html>
+Index: scripts/couloir2etage0.js
+===================================================================
+diff --git a/scripts/couloir2etage0.js b/scripts/couloir2etage0.js
+new file mode 100644
+--- /dev/null	
++++ b/scripts/couloir2etage0.js	
+@@ -0,0 +1,12 @@
++document.addEventListener("click", detectClick)
++
++function detectClick(event){
++    console.log(event.clientX + " " + event.clientY)
++    console.log(event.clientX/window.innerWidth + " " + event.clientY/window.innerHeight)
++    if (event.clientY/window.innerHeight > 0.485 && event.clientY/window.innerHeight < 0.507){
++        if (event.clientX/window.innerWidth > 0.45 && event.clientX/window.innerWidth < 0.51){
++            window.location = "couloir2etage0.html"
++        }
++    }
++
++}
+\ No newline at end of file
+Index: public_html/couloir1etage0.html
+===================================================================
+diff --git a/public_html/couloir1etage0.html b/public_html/couloir1etage0.html
+new file mode 100644
+--- /dev/null	
++++ b/public_html/couloir1etage0.html	
+@@ -0,0 +1,12 @@
++<!DOCTYPE html>
++<html lang="fr">
++<head>
++    <title>Couloir 1 étage 0</title>
++    <link rel="stylesheet" href="../styles/couloir1etage0.css">
++    <link href='https://fonts.googleapis.com/css?family=Yellowtail:400' rel='stylesheet' type='text/css'>
++</head>
++<body>
++
++<script src="../scripts/couloir1etage0.js"></script>
++</body>
++</html>
+Index: styles/couloir2etage0.css
+===================================================================
+diff --git a/styles/couloir2etage0.css b/styles/couloir2etage0.css
+new file mode 100644
+--- /dev/null	
++++ b/styles/couloir2etage0.css	
+@@ -0,0 +1,6 @@
++body {
++    background: url("../Images/couloir2etage0.png") no-repeat center center fixed;
++    background-size: cover;
++}
++
++
+Index: styles/couloir1etage0.css
+===================================================================
+diff --git a/styles/couloir1etage0.css b/styles/couloir1etage0.css
+new file mode 100644
+--- /dev/null	
++++ b/styles/couloir1etage0.css	
+@@ -0,0 +1,6 @@
++body {
++    background: url("../Images/couloir1etage0.png") no-repeat center center fixed;
++    background-size: cover;
++}
++
++
+Index: scripts/couloir1etage0.js
+===================================================================
+diff --git a/scripts/couloir1etage0.js b/scripts/couloir1etage0.js
+new file mode 100644
+--- /dev/null	
++++ b/scripts/couloir1etage0.js	
+@@ -0,0 +1,20 @@
++document.addEventListener("click", detectClick)
++
++function detectClick(event){
++    console.log(event.clientX + " " + event.clientY)
++    console.log(event.clientX/window.innerWidth + " " + event.clientY/window.innerHeight)
++    if (event.clientY/window.innerHeight > 0.40 && event.clientY/window.innerHeight < 0.80){
++        if (event.clientX/window.innerWidth > 0.34 && event.clientX/window.innerWidth < 0.395){
++            window.location = "couloir1pgaucheetage0.html"
++        }
++        else if (event.clientX/window.innerWidth > 0.59 && event.clientX/window.innerWidth < 0.645){
++            window.location = "couloir1pdroiteetage0.html"
++        }
++    }
++    if (event.clientY/window.innerHeight > 0.485 && event.clientY/window.innerHeight < 0.507){
++        if (event.clientX/window.innerWidth > 0.45 && event.clientX/window.innerWidth < 0.51){
++            window.location = "couloir2etage0.html"
++        }
++    }
++
++}
+\ No newline at end of file
+Index: public_html/couloir1pgaucheetage0.html
+===================================================================
+diff --git a/public_html/couloir1pgaucheetage0.html b/public_html/couloir1pgaucheetage0.html
+new file mode 100644
+--- /dev/null	
++++ b/public_html/couloir1pgaucheetage0.html	
+@@ -0,0 +1,16 @@
++<!DOCTYPE html>
++<html lang="fr">
++<head>
++    <title>Couloir 1 étage 0 porte droite</title>
++    <link rel="stylesheet" href="../styles/couloir1pgaucheetage0.css">
++    <link href='https://fonts.googleapis.com/css?family=Yellowtail:400' rel='stylesheet' type='text/css'>
++</head>
++<body>
++<div id="imgContainer"  class="hidden">
++    <div id="closeButton">X</div>
++    <img src="../Images/enigmec1pgauchee0.png"/>
++</div>
++
++<script src="../scripts/couloir1pgaucheetage0.js"></script>
++</body>
++</html>
+Index: public_html/couloir1pdroiteetage0.html
+===================================================================
+diff --git a/public_html/couloir1pdroiteetage0.html b/public_html/couloir1pdroiteetage0.html
+new file mode 100644
+--- /dev/null	
++++ b/public_html/couloir1pdroiteetage0.html	
+@@ -0,0 +1,16 @@
++<!DOCTYPE html>
++<html lang="fr">
++<head>
++    <title>Couloir 1 étage 0 porte droite</title>
++    <link rel="stylesheet" href="../styles/couloir1pdroiteetage0.css">
++    <link href='https://fonts.googleapis.com/css?family=Yellowtail:400' rel='stylesheet' type='text/css'>
++</head>
++<body>
++    <div id="imgContainer"  class="hidden">
++        <div id="closeButton">X</div>
++        <img src="../Images/enigmec1pdroite0.png"/>
++    </div>
++
++    <script src="../scripts/couloir1pdroiteetage0.js"></script>
++</body>
++</html>
+Index: styles/couloir1pdroiteetage0.css
+===================================================================
+diff --git a/styles/couloir1pdroiteetage0.css b/styles/couloir1pdroiteetage0.css
+new file mode 100644
+--- /dev/null	
++++ b/styles/couloir1pdroiteetage0.css	
+@@ -0,0 +1,41 @@
++body {
++    background: url("../Images/couloir1portedroiteetage0.png") no-repeat center center fixed;
++    background-size: cover;
++    width: 100vw;
++    height: 100vh;
++    margin: 0;
++}
++
++#imgContainer{
++    display:block;
++    position: absolute;
++    width: 60%;
++    top: 50%;
++    left: 50%;
++    transform: translate(-50%,-50%);
++}
++#imgContainer.hidden{
++    display:none;
++}
++
++#imgContainer img{
++    width: 100%;
++    height: 100%;
++}
++
++#imgContainer #closeButton{
++    position: absolute;
++    color: white;
++    padding: 10px;
++    font-size: 2em;
++    font-family: sans-serif;
++    right: 0;
++    top: 0;
++    cursor: pointer;
++}
++
++#imgContainer #closeButton:hover{
++    background-color: rgba(0,0,0,0.5);
++}
++
++
+Index: scripts/couloir1pdroiteetage0.js
+===================================================================
+diff --git a/scripts/couloir1pdroiteetage0.js b/scripts/couloir1pdroiteetage0.js
+new file mode 100644
+--- /dev/null	
++++ b/scripts/couloir1pdroiteetage0.js	
+@@ -0,0 +1,19 @@
++document.addEventListener("click", detectClick)
++document.querySelector('#closeButton').addEventListener('click', ()=>{
++    document.querySelector('#imgContainer').classList.add('hidden');
++});
++
++function detectClick(event){
++    console.log(event.clientX + " " + event.clientY)
++    console.log(event.clientX/window.innerWidth + " " + event.clientY/window.innerHeight)
++    if (event.clientX/window.innerWidth > 0.21 && event.clientX/window.innerWidth < 0.34){
++        if (event.clientY/window.innerHeight > 0.32 && event.clientY/window.innerHeight < 0.647)
++            window.location = "couloir1etage0.html"
++    }
++    else if (event.clientX/window.innerWidth > 0.738 && event.clientX/window.innerWidth < 0.90) {
++        if (event.clientY / window.innerHeight > 0.23 && event.clientY / window.innerHeight < 0.622){
++            document.querySelector('#imgContainer').classList.remove('hidden');
++        }
++    }
++
++}
+\ No newline at end of file
+diff --git a/styles/couloir1etage0ee.css b/styles/couloir1etage0ee.css
+new file mode 100644
