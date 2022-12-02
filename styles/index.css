@@ -54,7 +54,7 @@ h2 {
     font-weight: 400;
 }
 
-.hostOrJoinForm {
+.baseForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,12 +74,6 @@ button:hover {
     background-color: #0fa;
     color: rgba(255, 0, 0, 0.308);
     animation: flicker-red 1.5s infinite alternate;
-}
-
-div.formDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .textInput {
