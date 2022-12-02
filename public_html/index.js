@@ -71,7 +71,7 @@ function createGame() {
 }
 
 async function sendGameRequest() {
-    const response = await fetch('http://' + API + '/create-game', { method: 'POST' });
+    const response = await fetch('https://' + API + '/create-game', { method: 'POST' });
     return await response.json();
 }
 
