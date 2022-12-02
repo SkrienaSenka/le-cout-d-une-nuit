@@ -18,3 +18,14 @@ function detectClick(event){
     }
 
 }
+
+function initGame() {
+    let data = localStorage.getItem("data");
+    console.log('!!!!!!!')
+    if (!data) {
+        console.log('!!!!!!!')
+        localStorage.setItem("data", JSON.stringify({EE_Etage0: false, Etage1_Acces: false, EE_Etage1: false}));
+    }
+}
+
+initGame()

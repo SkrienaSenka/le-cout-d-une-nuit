@@ -25,7 +25,10 @@ h1 {
     flex-basis: 100%;
 }
 
-
+a {
+    color: white;
+    font-size: 50px;
+}
 
 /* Additional styling */
 
