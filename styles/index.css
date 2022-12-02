@@ -58,6 +58,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     
 }
 
@@ -71,6 +72,35 @@ button {
 
 button:hover {
     background-color: #0fa;
+    color: rgba(255, 0, 0, 0.308);
+    animation: flicker-red 1.5s infinite alternate;
+}
+
+div.formDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textInput {
+    font-size: 50px;
+    font-family: "Yellowtail", sans-serif;
+    border-radius: 15px;
+    border: #0fa solid 5px;
+    text-align: center;
+}
+
+.textInput::placeholder {
+    color: rgba(255, 0, 0, 0.267);
+    text-align: center;
+}
+
+.textInput:focus {
+    color: rgba(255, 0, 0, 0.308);
+    animation: flicker-red 1.5s infinite alternate;
+}
+
+.textInput:hover {
     color: rgba(255, 0, 0, 0.308);
     animation: flicker-red 1.5s infinite alternate;
 }
