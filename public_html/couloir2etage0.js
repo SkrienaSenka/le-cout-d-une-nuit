@@ -8,5 +8,9 @@ function detectClick(event){
             window.location = "couloir2etage0porte.html"
         }
     }
-
+    if (event.clientY/window.innerHeight > 0.53 && event.clientY/window.innerHeight < 0.56){
+        if (event.clientX/window.innerWidth > 0.825 && event.clientX/window.innerWidth < 0.94){
+            window.location = "couloir1etage0.html"
+        }
+    }
 }
